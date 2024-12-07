@@ -16,12 +16,15 @@ for i in range(len(dados)):
     if abs(2.2 * dados.loc[i,'velocidade'] / (omega*2*np.pi)) > ab:
         ab = abs(2.2 * dados.loc[i,'velocidade'] / (omega*2*np.pi))
 
-#for i in range(len(dados)):
-#    alpha.append(-np.arctan(1/max(c)*dados.loc[i,'velocidade']/omega))
+alpha = []
+
+for i in range(len(dados)):
+    alpha.append(-np.arctan(1/r_0*dados.loc[i,'velocidade']/ (omega*2*np.pi)))
 
 print(f'''
 O valor mínimo de C deve ser {max(c)} mm
 O valor de a + b deve ser {ab} mm
+O valor máximo de alpha no came de rolete é {np.rad2deg(max(alpha))}°
 ''')
 
 
